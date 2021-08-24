@@ -1,0 +1,193 @@
+<app-navbar></app-navbar>
+<app-btn-goback></app-btn-goback>
+  <label class="title-ppal">Nueva emergencia</label>
+<button (click)="saveInihis()" class="btn btn-secundary btn-save-ini-his">Guardar</button>
+<div class="container card"><br>
+	<ngb-tabset>
+	  <ngb-tab title="Datos del paciente">
+	    <ng-template ngbTabContent><br>
+	    	<ngb-tabset>
+	 			<ngb-tab title="Datos personales">
+	    			<ng-template ngbTabContent>
+	    				<div class="row">
+							<div class="col-12">
+								<div class="form-group">
+								<br><b>Fecha de nacimiento</b>
+								<input [(ngModel)]="modificar" type="date" class="form-control text-center" id="date_birth" placeholder="">
+								</div>
+							</div>
+	    					<div class="col-6">
+								<div class="form-group">
+								<input [(ngModel)]="modificar" type="number" class="form-control text-center" id="ci" placeholder="    Cédula o pasaporte">
+								</div>
+								
+								<div class="form-group">
+								<input [(ngModel)]="modificar" type="text" class="form-control text-center" id="name2" placeholder="Segundo nombre">
+								</div>
+								
+								<div class="form-group">
+								<input [(ngModel)]="modificar" type="text" class="form-control text-center" id="last_name2" placeholder="Segundo apellido">
+								</div>
+							</div>
+	    					<div class="col-6">
+	    						<div class="form-group">
+								<input [(ngModel)]="modificar" type="text" class="form-control text-center" id="name" placeholder="Primer nombre">
+								</div>
+
+								<div class="form-group">
+								<input [(ngModel)]="modificar" type="text" class="form-control text-center" id="last_name" placeholder="Primer apellido">
+								</div>
+
+								<div class="form-group">
+								<input [(ngModel)]="modificar" type="text" class="form-control text-center" id="sexo" placeholder="Sexo">
+								</div>								
+							</div>
+						</div>
+					</ng-template>
+			  	</ngb-tab>
+			  	<ngb-tab title="Otros datos">
+	    			<ng-template ngbTabContent>
+						<br><h5 class="text-center">Otros datos</h5><br>
+	    				<div class="row">
+	    					<div class="col-6">
+								<div class="form-group">
+								<input [(ngModel)]="modificar" type="text" class="form-control text-center" id="state" placeholder="Estado civil">
+								</div>
+
+								<div class="form-group">
+								<input [(ngModel)]="modificar" type="text" class="form-control text-center" id="ocupation" placeholder="Ocupacion">
+								</div>
+
+								<div class="form-group">
+								<input [(ngModel)]="modificar" type="text" class="form-control text-center" id="direction" placeholder="Dirección">
+								</div>
+							</div>
+	    					<div class="col-6">
+								<div class="form-group">
+								<input [(ngModel)]="modificar" type="number" class="form-control text-center" id="phone" placeholder="Numero de telefono">
+								</div>
+
+								<div class="form-group">
+								<input [(ngModel)]="modificar" type="email" class="form-control text-center" id="email" placeholder="Correo electrónico">
+								</div>
+							</div>
+						</div>
+					</ng-template>
+			  	</ngb-tab>
+			  	<ngb-tab title="Antecedentes médicos">
+	    			<ng-template ngbTabContent>
+						<br><h5 class="text-center">Antecedentes médicos</h5><br>
+	    				<div class="row">
+	    					<div class="col-6">
+								<div class="form-group text-center">
+								<b >Personales</b>
+								<input [(ngModel)]="modificar" type="text" class="form-control text-center" id="allergies" placeholder="Alergias">
+								</div>
+								<div class="form-group">
+								<input [(ngModel)]="modificar" type="text" class="form-control text-center" id="diseases" placeholder="Enfermedad">
+								</div>
+								<div class="form-group">
+								<input [(ngModel)]="modificar" type="text" class="form-control text-center" id="surgery" placeholder="Cirugias">
+								</div>
+							</div>
+	    					<div class="col-6">
+								<div class="form-group text-center">
+								<b>Familiares</b>
+								<input [(ngModel)]="modificar" type="text" class="form-control text-center" id="parient" placeholder="Tipo familiar">
+								</div>
+								<div class="form-group">
+								<input [(ngModel)]="modificar" type="text" class="form-control text-center" id="disease" placeholder="Enfermedad">
+								</div>
+							</div>
+						</div>
+					</ng-template>
+			  	</ngb-tab>
+		  </ngb-tabset>
+	    </ng-template>
+	  </ngb-tab>
+	  <ngb-tab title="Datos de la consulta" [disabled]="false" >
+		<ng-template ngbTabContent><br>
+			<div class="form-group text-center">
+				<b>Motivo de la consulta</b>
+				<textarea [(ngModel)]="modificar" type="text" class="form-control" id="motive" placeholder="Ingrese motivo de la consulta"></textarea>
+			</div>								
+			<ngb-tabset #t="ngbTabset">
+				<ngb-tab title="Sintomas">
+					<ng-template ngbTabContent><br>
+						<div class="container">
+							<div class="row">
+								<div class="col-md-6">
+									<div class="form-group">
+										<b>Sintomas</b>
+										<input [(ngModel)]="modificar" (change)="setSintomasButtonStatus()" type="text" class="form-control" id="sintomas" placeholder="Ingrese sintomas del paciente">
+									</div>
+								</div>
+							</div>
+						</div>
+					</ng-template>
+				</ngb-tab>
+				<ngb-tab title="Diagnosticos" [disabled]="tabdiagnosticos" id="tab-diagnostico">
+					<ng-template ngbTabContent><br>
+						<div class="container">
+							<div class="row">
+								<div class="col-md-6">
+									<div class="form-group">
+										<b>Diagnosticos</b>
+										<input [(ngModel)]="modificar" (change)="setTratamientoButtonStatus()"type="text" class="form-control" id="diagnostico" placeholder="Ingrese su diagnostico">
+									</div>
+								</div>
+							</div>
+						</div>
+					</ng-template>
+				</ngb-tab>
+				<ngb-tab title="Tratamientos" [disabled]="tabTratamientos" id="tab-tratamiento">
+					<ng-template ngbTabContent><br>
+						<div class="container">
+							<div class="row">
+								<div class="col-md-6">
+									<div class="form-group">
+										<b>Tratamiento</b>
+										<input [(ngModel)]="modificar" type="text" class="form-control" id="tratamiento" placeholder="Ingrese su tratamiento">
+									</div>
+								</div>
+							</div>
+						</div>
+					</ng-template>
+				</ngb-tab>
+			</ngb-tabset>
+		</ng-template>
+	  </ngb-tab>
+	  <!-- <ngb-tab title="Datos de la cita" [disabled]="false" >
+	    <ng-template ngbTabContent>
+			<br><h5 class="text-center">Datos de la cita por emergencia</h5><br>
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-group">
+						<b>Paciente</b>
+						<input disabled="" [(ngModel)]="modificar" type="text" class="form-control" id="patient">
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<b>Médico</b>
+						<input disabled="" [(ngModel)]="modificar" type="text" class="form-control" id="doctor">
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<b>Especialidad</b>
+						<input disabled="" [(ngModel)]="modificar" type="text" class="form-control" id="especialidad">
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<b>Fecha</b>
+						<input disabled="" [(ngModel)]="modificar" type="date" class="form-control" id="date">
+					</div>
+				</div>
+			</div>
+	    </ng-template>
+	  </ngb-tab> -->
+	</ngb-tabset>
+</div><br>
+

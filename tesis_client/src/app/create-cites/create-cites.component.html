@@ -1,0 +1,39 @@
+<app-navbar></app-navbar>
+<app-btn-goback></app-btn-goback>
+<div class="container card">
+  <br><h2>Crear cita</h2>
+  <div class="form-group">
+    <b><span style="color: red">* </span>Cedula del paciente</b>
+    <input [(ngModel)]="cite1.ci" type="text" class="form-control" id="ci" placeholder="Ingrese cedula">
+  </div>
+  <div class="form-group">
+      <b><span style="color: red">* </span>Especialidad</b>
+      <select [(ngModel)]="cite1.id_especialidad_id" class="form-control text-center">
+        <option value='null' selected="">Seleccione la especialidad</option>
+        <option value='1'>Ginecologia</option>
+        <option value='2'>Medicina general</option>
+        <option value='3'>Otorrinolaringología</option>
+        <option value='4'>Odontología</option>
+        <option value='5'>Oftalmología</option>
+        <option value='6'>Traumatología</option>
+      </select>
+  </div>
+  <div class="form-group">
+    <b><span style="color: red">* </span>Medico tratante</b>
+    <select [(ngModel)]="cite1.id_medico_id" type="text" class="form-control" id="id_medico_id">
+        <option value='null' selected="">Seleccione la especialidad</option>
+        <option value='1'>Eva Ramos</option>
+        <option value='8'>Evelin Pabon</option>
+        <option value='9'>Rafael Obregon</option>
+        <option value='10'>Carlos Garcia</option>
+        <option value='11'>Roxenis Sanoja</option>
+        <option value='12'>David Quiroz</option>
+    </select> 
+  </div>
+  <div class="form-group">
+    <b><span style="color: red">* </span>Fecha</b>
+    <input [(ngModel)]="cite1.date" type="date" class="form-control" id="date" placeholder="Coloque la fecha">
+    <span style="color: red" *ngIf="cite1.date < fecha" [(ngModel)]="disableChangeSaveButton" >Debe elegir una fecha actual o posterior</span>
+  </div>
+  <button (click)="saveCite()" [disabled]="disableChangeSaveButton" class="btn btn-secundary btn-save-ini-his">Guardar</button><br>
+</div>

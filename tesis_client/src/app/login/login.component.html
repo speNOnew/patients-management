@@ -1,0 +1,22 @@
+<app-navbar-login></app-navbar-login><br><br>
+<div class="col-md-6 mx-auto mt-5">
+	<div class="card">
+		<div class="card-body">
+			<h1 class="text-center">Bienvenido a INTIMED</h1>
+			<form name="form" (ngSubmit)="login()" #f="ngForm" novalidate>
+			    <div class="form-group">
+			        <i class="fa fa-user"></i><input type="email" placeholder="Usuario" class="form-control" name="email" [(ngModel)]="model.email" #email="ngModel" required>
+			        <!-- <input type="text" [(ngModel)]="model.email" class="form-control" name="email" #email="ngModel" email/> -->
+					<!-- <p style="color: red;" *ngIf="email.errors?.email">Debe colocar un correo valido</p> -->
+			    </div>
+			    <div class="form-group">
+			        <i class="fa fa-key"></i><input type="password" placeholder="Contraseña" class="form-control" name="password" [(ngModel)]="model.password" #password="ngModel" required />
+			    </div>
+			    <div class="form-group">
+			        <button [disabled]="loading" class="btn btn-secundary btn-block btn-lg btn-enter">Entrar</button>
+			    </div>
+			    <div *ngIf="error" class="alert alert-danger alert-position">{{error}}</div>
+			</form>
+		</div>
+	</div>
+</div>

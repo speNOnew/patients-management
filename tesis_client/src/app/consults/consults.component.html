@@ -1,0 +1,35 @@
+<app-navbar></app-navbar>
+<div class="row">
+	<div class="col-3">
+		<app-sidebar></app-sidebar>
+	</div>
+	<div class="col-8">
+		<div class="content-cites">
+			<div class="row">
+				<h2 class="title">Consultas para hoy</h2>
+				<button routerLink="/create-emergency" type="button" class="btn btn-light button-4">Emergencia</button>
+				<pagination-controls class="my-pagination" previousLabel="Anterior" nextLabel="Siguiente" (pageChange)="p = $event"></pagination-controls>
+			</div>
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th scope="col">Paciente</th>
+						<th scope="col">Doctor</th>
+						<th scope="col">Especialidad</th>
+						<th scope="col">Fecha</th>
+						<th scope="col">Opciones</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr *ngFor="let cite of citesshow | paginate: { itemsPerPage: 4, currentPage: p }">
+						<th>{{ cite.name_p }} {{ cite.last_name_p }}</th>
+						<td>{{ cite.name_m }} {{ cite.last_name_m }}</td>
+						<td>{{ cite.especialidad }}</td>
+						<td>{{ cite.date }}</td>
+						<td><a class="btn btn-secondary btn-sm btn-space-1" routerLink="/create-consult/{{ cite.id }}">Atender cita</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

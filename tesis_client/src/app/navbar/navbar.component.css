@@ -1,0 +1,19 @@
+.title
+{
+	margin-left: 70px;
+}
+
+.title-style
+{
+	color: gray;
+}
+
+.user
+{
+	color: #007DA8;
+	text-decoration: none;
+}
+.user:hover
+{
+	color: gray;
+}

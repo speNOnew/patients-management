@@ -1,0 +1,39 @@
+<?php
+
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+
+class TableCitesTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::dropIfExists('cites');
+        Schema::defaultStringLength(191);
+        Schema::create('cites', function (Blueprint $table) {
+            $table->increments('id');
+            $table->date('date');
+            $table->integer('id_patient_id')->unsigned();
+            $table->foreign('id_patient_id')->references('id')->on('patients');
+            $table->integer('id_medico_id')->unsigned();
+            $table->foreign('id_medico_id')->references('id')->on('medico');
+            $table->integer('id_especialidad_id')->unsigned();
+            $table->foreign('id_especialidad_id')->references('id')->on('especialidades');
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+    }
+}

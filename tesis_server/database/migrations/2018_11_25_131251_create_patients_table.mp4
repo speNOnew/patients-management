@@ -1,0 +1,49 @@
+<?php
+
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+
+class CreatePatientsTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::defaultStringLength(191);
+        Schema::create('patients', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('ci')->unique();
+            $table->string('name');
+            $table->string('name2');
+            $table->string('last_name');
+            $table->string('last_name2');
+            $table->string('sexo');
+            $table->string('state');
+            $table->date('date_birth');
+            $table->string('direction');
+            $table->string('phone');
+            $table->string('email');
+            $table->string('allergies');
+            $table->string('diseases');
+            $table->string('surgerys');
+            $table->string('parient');
+            $table->string('disease');
+            $table->timestamps();
+            
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('patients');
+    }
+}

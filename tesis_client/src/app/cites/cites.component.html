@@ -1,0 +1,45 @@
+<app-navbar></app-navbar>
+<div class="row">
+	<div class="col-3">
+	    <app-sidebar></app-sidebar>
+	</div>
+	<div class="col-8">
+		<div class="content-cites">
+		  	<div class="row">
+		  		<h2 class="title">Citas para hoy</h2>
+		  		<button routerLink="/create-cites" type="button" class="btn btn-light button-3">Crear cita</button>
+		  	</div><hr>
+		  		<div class="row">
+			  		<div class="form-group serach-cite">
+	    	    	  <input [(ngModel)]="filtercite" type="text" class="form-control text-center" id="filter" placeholder="Buscar cita">
+			  		</div>
+					<pagination-controls class="my-pagination" previousLabel="Anterior" nextLabel="Siguiente" (pageChange)="p = $event"></pagination-controls>
+		  		</div>
+			<table class="table table-striped">
+				<thead>
+				  <tr>
+				    <th scope="col">Cédula</th>
+				    <th scope="col">Nombre</th>
+				    <th scope="col">Apellido</th>
+				    <th scope="col">Especialidad</th>
+				    <th scope="col">Fecha</th>
+				    <th scope="col">Opciones</th>
+				  </tr>
+				</thead>
+				<tbody>
+				  <tr *ngFor="let cite of citeshow | filterCite: filtercite | paginate: { itemsPerPage: 4, currentPage: p }">
+				    <th>{{ cite.ci }}</th>
+				    <td>{{ cite.name_p }}</td>
+				    <td>{{ cite.last_name_p }}</td>
+				    <td>{{ cite.especialidad }}</td>
+				    <td>{{ cite.date }}</td>
+				    <td>
+				    	<a class="btn btn-secondary btn-sm btn-space-1" routerLink="/modific-cites/{{ cite.id }}">Cambiar fecha</a>
+				    	<a class="btn btn-primary btn-sm btn-danger" (click)="delete(cite.id)">Eliminar</a>
+				    </td>
+				  </tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

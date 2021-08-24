@@ -1,0 +1,47 @@
+<app-navbar></app-navbar>
+<div class="row" >
+	<div class="col-3">
+	    <app-sidebar></app-sidebar>
+	</div>
+	<div class="col-8">
+		<div class="content-cites">
+		  	<div class="row">
+		  		<h2 class="title">Usuarios del sistema</h2>
+		  		<button routerLink="/create-user" type="button" class="btn btn-light button-3-users">Crear usuario</button>
+		  	</div><hr>
+		  		<div class="row">
+			  		<div class="form-group serach-cite">
+	    	    	  <input [(ngModel)]="modificar" type="text" class="form-control text-center" id="modificar" placeholder="Buscar usuario">
+			  		</div>
+					<pagination-controls class="my-pagination" previousLabel="Anterior" nextLabel="Siguiente" (pageChange)="p = $event"></pagination-controls>
+		  		</div>
+			<table class="table table-striped">
+				<thead>
+				  <tr>
+				    <th scope="col">Correo</th>
+				    <th scope="col">Nombre de usuario</th>
+				    <!-- <th scope="col">Contraseña</th> -->
+				    <th scope="col">Fecha de creación</th>
+				    <th scope="col">Rol</th>
+				    <th scope="col">Opciones</th>
+				  </tr>
+				</thead>
+				<tbody>
+				  <tr *ngFor="let user of usuarios | paginate: { itemsPerPage: 4, currentPage: p }">
+				    <th>{{ user.name }}</th>
+				    <td>{{ user.email }}</td>
+				    <!-- <td>{{ user.password }}</td> -->
+				    <td>{{ user.created_at }}</td>
+				    <td *ngIf="user.id_rol_id == 1">Administrador</td>
+				    <td *ngIf="user.id_rol_id == 2">Médico</td>
+				    <td *ngIf="user.id_rol_id == 3">Secretaria</td>
+				    <td>
+				    	<a class="btn btn-secondary btn-sm btn-space-1" routerLink="/create-user/{{ user.id }}">Modificar</a>
+				    	<a class="btn btn-primary btn-sm btn-danger" (click)="delete(user.id)">Eliminar</a>
+				    </td>
+				  </tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

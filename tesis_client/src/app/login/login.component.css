@@ -1,0 +1,15 @@
+.btn-enter
+{
+	background-color: gray;
+	color: white;
+}
+
+.btn-enter:hover
+{
+	border-color: black;
+}
+
+.alert-position
+{
+	text-align: center;
+}

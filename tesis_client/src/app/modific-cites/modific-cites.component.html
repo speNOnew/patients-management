@@ -1,0 +1,20 @@
+<app-navbar></app-navbar>
+<app-btn-goback></app-btn-goback>
+<div class="container card">
+  <br><h2>Modificar cita</h2>
+  <div class="form-group">
+    <input hidden [(ngModel)]="cite1.id_patient_id" type="text" class="form-control" id="patient" placeholder="Ingrese nombre y apellido del paciente">
+  </div>
+  <div class="form-group">
+    <input hidden [(ngModel)]="cite1.id_medico_id" type="text" class="form-control" id="doctor" placeholder="Ingrese nombre y apellido del doctor">
+  </div>
+  <div class="form-group">
+    <input hidden [(ngModel)]="cite1.id_especialidad_id" type="text" class="form-control" id="especialidad" placeholder="indique la especialidad">
+  </div>
+  <div class="form-group">
+    <b><span style="color: red">* </span>Cambiar fecha</b>
+    <input [(ngModel)]="cite1.date" type="date" class="form-control" id="date" placeholder="Coloque la fecha">
+    <span style="color: red" *ngIf="cite1.date < fecha" [(ngModel)]="disableChangeSaveButton" >Debe elegir una fecha actual o posterior</span>
+  </div>
+  <button (click)="saveCite()" class="btn btn-secundary btn-save-ini-his">Guardar</button><br>
+</div>

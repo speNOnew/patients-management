@@ -1,0 +1,16 @@
+.color
+{
+	color: gray;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+.color:hover
+{
+	color: #dc3545;
+	text-decoration: none;
+}
+
+.color2:
+{
+	margin-left: 10px;
+}

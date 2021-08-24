@@ -1,0 +1,42 @@
+<app-navbar></app-navbar>
+<div class="row">
+	<div class="col-3">
+		<app-sidebar></app-sidebar>
+	</div>
+	<div class="col-8">
+		<div class="content-cites">
+			<div class="row">
+				<h2 class="title">Pacientes</h2><button routerLink="/ini-his" type="button" class="btn btn-light button-1">Iniciar historia</button>
+			</div>
+			<hr>
+			<div class="row">
+				<pagination-controls class="my-pagination" previousLabel="Anterior" nextLabel="Siguiente" (pageChange)="p = $event"></pagination-controls>
+				<div class="form-group serach-cite">
+					<input  [(ngModel)]="filterpatient" type="text" class="form-control text-center"  placeholder="Buscar historia">
+				</div>
+			</div>
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th scope="col">Cédula</th>
+						<th scope="col">Nombre</th>
+						<th scope="col">Apellido</th>
+						<th scope="col">Fecha de nacimiento</th>
+						<th scope="col">Opciones</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr *ngFor="let patient of patients | filterpatient: filterpatient | paginate: { itemsPerPage: 4, currentPage: p }">
+						<th>{{ patient.ci }}</th>
+						<td>{{ patient.name }}</td>
+						<td>{{ patient.last_name }}</td>
+						<td>{{ patient.date_birth }}</td>
+						<td>
+						<a class="btn btn-secondary btn-sm btn-space-1" routerLink="/ini-his/{{ patient.id }}">Modificar</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

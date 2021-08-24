@@ -1,0 +1,25 @@
+<app-navbar></app-navbar>
+<div class="row">
+	<div class="col-3">
+		<app-sidebar></app-sidebar>
+	</div>
+	<div class="col-8">
+		<div class="content-cites">
+			<div class="row">
+				<h2 class="title">Estadisticas individuales</h2>
+			</div><br>
+			<div style="display: block;">
+				<canvas baseChart
+	            [datasets]="barChartData"
+	            [labels]="barChartLabels"
+                [colors]="lineChartColors"
+	            [options]="barChartOptions"
+	            [legend]="barChartLegend"
+	            [chartType]="barChartType"
+	            (chartHover)="chartHovered($event)"
+	            (chartClick)="chartClicked($event)">
+	            </canvas>
+			</div>
+		</div>
+	</div>
+</div>

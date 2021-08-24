@@ -1,0 +1,131 @@
+<app-navbar></app-navbar>
+<app-btn-goback></app-btn-goback>
+<label class="title-ppal-nuevo-paciente">Consulta médica</label>
+<div class="container card"><br>
+  	<div class="row">
+	  	<div class="col-md-3">
+		  <div class="form-group">
+		    <b>Paciente</b>
+		    <input disabled="" [(ngModel)]="citeshow.name_p" type="text" class="form-control" id="patient">
+		  </div>
+		</div>
+		<div class="col-md-3">
+		  <div class="form-group">
+		    <b>Médico</b>
+		    <input disabled="" [(ngModel)]="citeshow.name_m" type="text" class="form-control" id="doctor">
+		  </div>
+		</div>
+		<div class="col-md-3">
+		  <div class="form-group">
+		    <b>Especialidad</b>
+		    <input disabled="" [(ngModel)]="citeshow.especialidad" type="text" class="form-control" id="especialidad">
+		  </div>
+		</div>
+		<div class="col-md-3">
+		  <div class="form-group">
+		    <b>Fecha</b>
+		    <input disabled="" [(ngModel)]="citeshow.date" type="date" class="form-control" id="date">
+		  </div>
+		</div>
+	</div>
+	<hr>
+	<div class="form-group text-center">
+		<b>Motivo de la consulta</b>
+		<textarea [(ngModel)]="consult.motive" type="text" class="form-control" id="motive" placeholder="Ingrese motivo de la consulta"></textarea>
+	</div>
+	<hr>
+	<ngb-tabset #t="ngbTabset">
+	  <ngb-tab title="Sintomas">
+	    <ng-template ngbTabContent><br>
+	      <div class="container">
+		      <div class="row">
+		      	<div class="col-md-6">
+				 <div class="form-group">
+				   <b>Sintomas</b>
+			       <input [(ngModel)]="consult.sintoma" (change)="setSintomasButtonStatus()" type="text" class="form-control" id="sintomas" placeholder="Ingrese sintomas del paciente">
+				 </div>
+				</div>
+				<div class="col-md-6">
+				 <div class="form-group">
+				 	<b hidden></b><br>
+		  			<button (click)="t.select('tab-diagnostico')" class="btn btn-secundary btn-save-create-cites" [disabled]="disableChangeTabdiagnosticoButton">Siguiente</button><br><br>
+				 </div>
+				</div>
+			  </div>
+		  </div>
+	    </ng-template>
+	  </ngb-tab>
+	  <ngb-tab title="Diagnosticos" [disabled]="tabdiagnosticos" id="tab-diagnostico">
+	    <ng-template ngbTabContent><br>
+	    	<div class="container">
+		      <div class="row">
+		      	<div class="col-md-6">
+				 <div class="form-group">
+				   <b>Diagnosticos</b>
+		    		<input [(ngModel)]="consult.diagnostico" (change)="setTratamientoButtonStatus()"type="text" class="form-control" id="diagnostico" placeholder="Ingrese su diagnostico">
+				 </div>
+				</div>
+				<div class="col-md-6">
+				 <div class="form-group">
+				 	<b hidden></b><br>
+		  			<button (click)="t.select('tab-tratamiento')" class="btn btn-secundary btn-save-create-cites" [disabled]="disableChangeTabTratamientoButton">Siguiente</button><br><br>
+				 </div>
+				</div>
+			  </div>
+		  </div>
+	    </ng-template>
+	  </ngb-tab>
+	  <ngb-tab title="Tratamientos" [disabled]="tabTratamientos" id="tab-tratamiento">
+	    <ng-template ngbTabContent><br>
+	      <div class="container">
+		      <div class="row">
+		      	<div class="col-md-6">
+				 <div class="form-group">
+				   <b>Tratamiento</b>
+		    		<input [(ngModel)]="consult.tratamiento" type="text" class="form-control" id="tratamiento" placeholder="Ingrese su tratamiento">
+		    	 </div>
+				</div>
+		    	<div class="col-md-6">
+				 <div class="form-group">
+				 	<b hidden></b><br>
+		  			<button (click)="saveConsult()" class="btn btn-secundary btn-save-create-cites">Guardar</button><br><br>
+				 </div>
+				</div>
+			  </div>
+		  </div>
+	    </ng-template>
+	  </ngb-tab>
+	</ngb-tabset>
+</div>
+<br>
+
+<!-- <ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="form-group">
+        <label for="dateOfBirth">Date of birth</label>
+        <div class="input-group">
+          <input id="dateOfBirth" class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #dp="ngbDatepicker">
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary calendar" (click)="dp.toggle()" type="button"></button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+  </div>
+</ng-template>
+
+<button class="btn btn-lg btn-outline-primary" (click)="open(content)">Launch demo modal</button>
+
+<hr>
+
+<pre>{{closeResult}}</pre> -->

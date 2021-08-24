@@ -1,0 +1,27 @@
+<app-navbar></app-navbar>
+<app-btn-goback></app-btn-goback>
+<div class="container card text-center">
+  <br><h2>Crear usuario</h2>
+  <div class="form-group">
+    <b>Nombre de usuario</b>
+    <input [(ngModel)]="dato.email" type="text" class="form-control text-center" id="email" placeholder="Coloque un correo electrónico">
+  </div>
+  <div class="form-group">
+    <b>Correo</b>
+    <input [(ngModel)]="dato.name" type="text" class="form-control text-center" id="name" placeholder="Coloque un nombre de usuario">
+  </div>
+  <div class="form-group">
+    <b>Contraseña</b>
+    <input [(ngModel)]="dato.password" type="password" class="form-control text-center" id="password" placeholder="Coloque una contraseña">
+  </div>
+  <div class="form-group">
+    <b>Eliga un rol de usuario</b>
+    <select [(ngModel)]='dato.id_rol_id' class='form-control text-center'>
+      <option value='null' selected="" text-center>Seleccione el rol de usuario</option>
+      <option value='1' class='text-center'>Administrador</option>
+      <option value='2' class='text-center'>Médico</option>
+      <option value='3' class='text-center'>Secretaria</option>
+    </select>
+  </div>
+  <button (click)="saveUser()" class="btn btn-secundary btn-save-ini-his">Guardar</button><br>
+</div>

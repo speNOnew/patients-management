@@ -1,0 +1,177 @@
+<app-navbar></app-navbar>
+<app-btn-goback></app-btn-goback>
+  <label class="title-ppal">Historia médica</label>
+    <div class="container card"><br>
+      <ngb-tabset>
+        <ngb-tab title="Datos del paciente">
+          <ng-template ngbTabContent><br>
+            <ngb-tabset>
+
+              <ngb-tab title="Datos personales">
+                <ng-template ngbTabContent><br>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                      <b>Cédula</b>
+                      <input [(ngModel)]="dato.ci" type="number" class="form-control" id="ci" disabled>
+                      </div>
+                      <div class="form-group">
+                        <b>Primer nombre</b>
+                        <input [(ngModel)]="dato.name" type="text" class="form-control" id="name" disabled>
+                      </div>
+                      <div class="form-group">
+                        <b>Segundo nombres</b>
+                        <input [(ngModel)]="dato.name2" type="text" class="form-control" id="name2" disabled>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <b>Primer apellido</b>
+                        <input [(ngModel)]="dato.last_name" type="text" class="form-control" id="last_name" disabled>
+                      </div><div class="form-group">
+                        <b>Primer apellido</b>
+                        <input [(ngModel)]="dato.last_name2" type="text" class="form-control" id="last_name" disabled>
+                      </div>
+                      <div class="form-group">
+                        <b>Sexo</b>
+                        <input hidden [(ngModel)]="dato.sexo" type="text" class="form-control" id="sexo" disabled>
+                        <input *ngIf="dato.sexo == 1" type="text" class="form-control" id="sexo" disabled placeholder="Masculino">
+                        <input *ngIf="dato.sexo == 2" type="text" class="form-control" id="sexo" disabled placeholder="Femenino">
+                      </div>
+                      <div class="form-group">
+                        <b>Fecha de nacimiento</b>
+                        <input [(ngModel)]="dato.date_birth" type="date" class="form-control" id="date_birth" disabled>
+                      </div>
+                    </div>
+                  </div>
+                </ng-template>
+              </ngb-tab>
+
+              <ngb-tab title="Otros datos">
+                <ng-template ngbTabContent><br>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <b>Estado civil</b>
+                        <input hidden [(ngModel)]="dato.state" type="text" class="form-control" id="state" disabled>
+                        <input *ngIf="dato.state == 1" type="text" class="form-control" id="state" disabled placeholder="Soltero(a)">
+                        <input *ngIf="dato.state == 2" type="text" class="form-control" id="state" disabled placeholder="Casado(a)">
+                        <input *ngIf="dato.state == 3" type="text" class="form-control" id="state" disabled placeholder="Divorciado(a)">
+                      </div>
+                      <div class="form-group">
+                        <b>Zona donde vive</b>
+                        <input [(ngModel)]="dato.direction" type="text" class="form-control" id="direction" disabled>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <b>Numero de telefono</b>
+                        <input [(ngModel)]="dato.phone" type="number" class="form-control" id="phone" disabled>
+                      </div>
+                      <div class="form-group">
+                        <b>Correo electrónico</b>
+                        <input [(ngModel)]="dato.email" type="text" class="form-control" id="email" disabled>
+                      </div>
+                    </div>
+                  </div>
+                </ng-template>
+              </ngb-tab>
+
+              <ngb-tab title="Antecedentes médicos">
+                <ng-template ngbTabContent><br>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <h5 class="text-center">Personales</h5><hr>
+                        <b>Alergias</b>
+                        <input hidden [(ngModel)]="dato.allergies" type="text" class="form-control" id="allergies" disabled>
+                        <input *ngIf="dato.allergies == 1" type="text" class="form-control" id="allergies" disabled placeholder="n/a">
+                        <input *ngIf="dato.allergies == 2" type="text" class="form-control" id="allergies" disabled placeholder="Dermatitis">
+                        <input *ngIf="dato.allergies == 3" type="text" class="form-control" id="allergies" disabled placeholder="Psoriasis">
+                      </div>
+                      <div class="form-group">
+                        <b>Enfermedad</b>
+                        <input hidden [(ngModel)]="dato.diseases" type="text" class="form-control" id="diseases" disabled>
+                        <input *ngIf="dato.diseases == 1" type="text" class="form-control" id="diseases" disabled placeholder="n/a">
+                        <input *ngIf="dato.diseases == 2" type="text" class="form-control" id="diseases" disabled placeholder="Sinusitis">
+                        <input *ngIf="dato.diseases == 3" type="text" class="form-control" id="diseases" disabled placeholder="Gastritis">
+                        <input *ngIf="dato.diseases == 4" type="text" class="form-control" id="diseases" disabled placeholder="Asma">
+                        <input *ngIf="dato.diseases == 5" type="text" class="form-control" id="diseases" disabled placeholder="Obesidad">
+                        <input *ngIf="dato.diseases == 6" type="text" class="form-control" id="diseases" disabled placeholder="Alzhaimer">
+                        <input *ngIf="dato.diseases == 7" type="text" class="form-control" id="diseases" disabled placeholder="Cáncer">
+                        <input *ngIf="dato.diseases == 8" type="text" class="form-control" id="diseases" disabled placeholder="Hepatitis">
+                      </div>
+                      <div class="form-group">
+                        <b>Cirugias</b>
+                        <input hidden [(ngModel)]="dato.surgerys" type="text" class="form-control" id="surgerys" disabled>
+                        <input *ngIf="dato.surgerys == 1" type="text" class="form-control" id="surgerys" disabled placeholder="n/a">
+                        <input *ngIf="dato.surgerys == 2" type="text" class="form-control" id="surgerys" disabled placeholder="Higado">
+                        <input *ngIf="dato.surgerys == 3" type="text" class="form-control" id="surgerys" disabled placeholder="Apendicectomía">
+                        <input *ngIf="dato.surgerys == 4" type="text" class="form-control" id="surgerys" disabled placeholder="Cesárea">
+                        <input *ngIf="dato.surgerys == 5" type="text" class="form-control" id="surgerys" disabled placeholder="Colecistectomía">
+                        <input *ngIf="dato.surgerys == 6" type="text" class="form-control" id="surgerys" disabled placeholder="Corazón">
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <h5 class="text-center">Familiares</h5><hr>
+                        <b>Tipo de parentesco</b>
+                        <input hidden [(ngModel)]="dato.parient" type="text" class="form-control" id="parient" disabled>
+                        <input *ngIf="dato.parient == 1" type="text" class="form-control" id="parient" disabled placeholder="n/a">
+                        <input *ngIf="dato.parient == 2" type="text" class="form-control" id="parient" disabled placeholder="Padre">
+                        <input *ngIf="dato.parient == 3" type="text" class="form-control" id="parient" disabled placeholder="Madre">
+                        <input *ngIf="dato.parient == 4" type="text" class="form-control" id="parient" disabled placeholder="Abuelo">
+                        <input *ngIf="dato.parient == 5" type="text" class="form-control" id="parient" disabled placeholder="Abuela">
+                        <input *ngIf="dato.parient == 6" type="text" class="form-control" id="parient" disabled placeholder="Hermano">
+                        <input *ngIf="dato.parient == 7" type="text" class="form-control" id="parient" disabled placeholder="Hermana">
+                        <input *ngIf="dato.parient == 8" type="text" class="form-control" id="parient" disabled placeholder="Hijo">
+                        <input *ngIf="dato.parient == 9" type="text" class="form-control" id="parient" disabled placeholder="Hija">
+                      </div>
+                      <div class="form-group">
+                        <b>Enfermedad</b>
+                        <input hidden [(ngModel)]="dato.disease" type="text" class="form-control" id="disease" disabled>
+                        <input *ngIf="dato.disease == 1" type="text" class="form-control" id="disease" disabled placeholder="n/a">
+                        <input *ngIf="dato.disease == 2" type="text" class="form-control" id="disease" disabled placeholder="Sinusitis">
+                        <input *ngIf="dato.disease == 3" type="text" class="form-control" id="disease" disabled placeholder="Gastritis">
+                        <input *ngIf="dato.disease == 4" type="text" class="form-control" id="disease" disabled placeholder="Asma">
+                        <input *ngIf="dato.disease == 5" type="text" class="form-control" id="disease" disabled placeholder="Obesidad">
+                        <input *ngIf="dato.disease == 6" type="text" class="form-control" id="disease" disabled placeholder="Alzhaimer">
+                        <input *ngIf="dato.disease == 7" type="text" class="form-control" id="disease" disabled placeholder="Cáncer">
+                        <input *ngIf="dato.disease == 8" type="text" class="form-control" id="disease" disabled placeholder="Hepatitis">
+                      </div>
+                    </div>
+                  </div>
+                </ng-template>
+              </ngb-tab>
+
+            </ngb-tabset>
+          </ng-template>
+        </ngb-tab>
+
+      <ngb-tab title="Historial de consultas" [disabled]="false" >
+        <ng-template ngbTabContent><br>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Fecha</th>
+                <th scope="col">Motivo</th>
+                <th scope="col">Sintomas</th>
+                <th scope="col">Diagnostico</th>
+                <th scope="col">Tratamiento</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let consult of consults">
+                <th>{{ consult.created_at }}</th>
+                <th>{{ consult.motive }}</th>
+                <td>{{ consult.sintoma }}</td>
+                <td>{{ consult.diagnostico }}</td>
+                <td>{{ consult.tratamiento }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </ng-template>
+      </ngb-tab>
+    
+    </ngb-tabset>
+</div><br>

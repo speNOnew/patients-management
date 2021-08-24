@@ -1,0 +1,177 @@
+<app-navbar></app-navbar>
+<app-btn-goback></app-btn-goback>
+<label class="title-ppal-nuevo-paciente">Nuevo paciente</label>
+<button (click)="saveInihis()" class="btn btn-light btn-save-ini-his-modificated">Guardar</button><br>
+<div class="container card"><br>
+<ngb-tabset>
+  <ngb-tab title="Datos personales">
+      <ng-template ngbTabContent>
+        <div class="row">
+        <div class="col-12">
+          <div class="form-group">
+          <br><b><span style="color: red">* </span>Fecha de nacimiento</b>
+          <input [(ngModel)]="dato.date_birth" type="date" class="form-control text-center" id="date_birth" name="date_birth" #date_birth="ngModel" minDate="1920-01-01" maxDate="2000-01-01">
+          <span style="color: red" *ngIf="date_birth.errors?.minDate || date_birth.errors?.maxDate" >Fecha Inválida</span>
+          </div>
+        </div>
+          <div class="col-6">
+          <div class="form-group">
+          <b><span style="color: red">* </span>Cédula o pasaporte</b>
+          <input [(ngModel)]="dato.ci" type="text" class="form-control text-center" id="ci" placeholder="    Cédula o Pasaporte" name="ci" #ci="ngModel" required digits [rangeLength]="[6, 8]">
+          <span style="color: red" *ngIf="(ci.errors?.rangeLength || ci.errors?.digits) && !editing" >Cédula Inválida</span>
+          <span style="color: red" *ngIf="ci.errors?.required && ci.touched" >Cédula Requerida</span>
+          </div>
+
+          <div class="form-group">
+          <b><span style="color: red">* </span>Primer nombre</b>
+          <input [(ngModel)]="dato.name" type="text" class="form-control text-center" id="name" placeholder="Primer nombre" name="name" #name="ngModel" required pattern="[a-zA-Z]+">
+          <span style="color: red" *ngIf="name.errors && name.touched">Campo obligatorio</span>
+          <span style="color: red" *ngIf="name.errors?.pattern">Sólo Caracteres Alfabéticos</span>
+          </div>
+
+          <div class="form-group">
+          <b>segundo nombre</b>
+          <input [(ngModel)]="dato.name2" type="text" class="form-control text-center" id="name2" placeholder="Segundo nombre" name="name2" #name2="ngModel" required pattern="[a-zA-Z]+">
+          <span style="color: red" *ngIf="name2.errors && name2.touched">Campo obligatorio</span>
+          <span style="color: red" *ngIf="name2.errors?.pattern">Sólo Caracteres Alfabéticos</span>
+          </div>
+
+        </div>
+          <div class="col-6">
+            <div class="form-group">
+          <b><span style="color: red">* </span>Primer apellido</b>
+          <input [(ngModel)]="dato.last_name" type="text" class="form-control text-center" id="last_name" placeholder="Primer apellido" name="last_name" #last_name="ngModel" required pattern="[a-zA-Z]+">
+          <span style="color: red" *ngIf="last_name.errors && last_name.touched">Campo obligatorio</span>
+          <span style="color: red" *ngIf="last_name.errors?.pattern">Sólo Caracteres Alfabéticos</span>
+          </div>
+
+          <div class="form-group">
+          <b>Segundo apellido</b>
+          <input [(ngModel)]="dato.last_name2" type="text" class="form-control text-center" id="name2" placeholder="Segundo Apellido" name="last_name" #last_name2="ngModel" required pattern="[a-zA-Z]+">
+          <span style="color: red" *ngIf="last_name2.errors && last_name2.touched">Campo obligatorio</span>
+          <span style="color: red" *ngIf="last_name2.errors?.pattern">Sólo Caracteres Alfabéticos</span>
+          </div>
+
+          <div class="form-group">
+          <b><span style="color: red">* </span>Sexo</b>
+          <select [(ngModel)]="dato.sexo" class="form-control text-center">
+            <option value='null' selected="">Seleccione el sexo del paciente</option>
+            <option value='1'>Masculino</option>
+            <option value='2'>Femenino</option>
+          </select>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+    </ngb-tab>
+    <ngb-tab title="Otros datos">
+      <ng-template ngbTabContent>
+      <br><h5 class="text-center">Otros datos</h5><br>
+        <div class="row">
+          <div class="col-6">
+            <div class="form-group">
+            <b><span style="color: red">* </span>Estado civil</b>
+            <select [(ngModel)]="dato.state" class="form-control text-center">
+              <option value='null' selected="">Seleccione el estado civil del paciente</option>
+              <option value='1'>Soltero(a)</option>
+              <option value='2'>Casado(a)</option>
+              <option value='3'>Divorciado(a)</option>
+            </select>
+            </div>
+            <div class="form-group">
+              <b><span style="color: red">* </span>Zona donde vive</b>
+              <input [(ngModel)]="dato.direction" type="text" class="form-control text-center" id="direction" #direction="ngModel" placeholder="Dirección" required>
+            <span style="color: red" *ngIf="direction.errors && direction.touched">Campo obligatorio</span>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="form-group">
+              <b><span style="color: red">* </span>Numero de telefono</b>
+              <input [(ngModel)]="dato.phone" type="text" class="form-control text-center" id="phone" placeholder="Numero de telefono (04161234567)" name="phone" #phone="ngModel" required phone="VE">
+              <span style="color: red" *ngIf="phone.errors && phone.touched">Campo obligatorio</span>
+            </div>
+              <div class="form-group">
+              <b><span style="color: red">* </span>Email</b>
+              <input [(ngModel)]="dato.email" type="email" class="form-control text-center" id="email" placeholder="Correo electrónico" name="email" #email="ngModel" email required>
+              <span style="color: red" *ngIf="email.errors && email.touched">Campo obligatorio</span>
+              <span style="color: red" *ngIf="email.errors?.email">No es un Email válido</span>
+            </div>
+          </div>
+      </div>
+    </ng-template>
+    </ngb-tab>
+    <ngb-tab title="Antecedentes médicos">
+      <ng-template ngbTabContent>
+      <br><h5 class="text-center">Antecedentes Médicos</h5><br>
+        <div class="row">
+          <div class="col-6">
+          <div class="form-group text-center">
+          <b >Personales</b>
+          </div>
+          <div class="form-group">
+          <b>Alergias</b>
+          <select [(ngModel)]="dato.allergies" class="form-control text-center">
+            <option value='null' selected="">Seleccione alguna alergia</option>
+            <option value='2'>Dermatitis</option>
+            <option value='3'>Psoriasis</option>
+          </select>
+          </div>
+          <div class="form-group">
+          <b>Enfermedades</b>
+          <select [(ngModel)]="dato.diseases" class="form-control text-center">
+            <option value='null' selected="">Seleccione alguna enfermedad</option>
+            <option value='2'>Sinusitis</option>
+            <option value='3'>Gastritis</option>
+            <option value='4'>Asma</option>
+            <option value='5'>Obesidad</option>
+            <option value='6'>Alzheimer</option>
+            <option value='7'>Cáncer</option>
+            <option value='8'>Hepatitis</option>
+          </select>
+          </div>
+          <div class="form-group">
+          <b>Cirugias</b>
+          <select [(ngModel)]="dato.surgerys" class="form-control text-center">
+            <option value='null' selected="">Seleccione alguna cirugia</option>
+            <option value='6'>Corazón</option>
+            <option value='2'>Higado</option>
+            <option value='3'>Apendicectomía</option>
+            <option value='4'>Cesárea</option>
+            <option value='5'>Colecistectomía</option>
+          </select>
+          </div>
+        </div>
+          <div class="col-6">
+          <div class="form-group text-center">
+          <b>Familiares</b>
+          </div>
+          <div class="form-group">
+          <b>Parientes</b>
+          <select [(ngModel)]="dato.parient" class="form-control text-center">
+            <option value='null' selected="">Seleccione a un pariente</option>
+            <option value='2'>Padre</option>
+            <option value='3'>Madre</option>
+            <option value='4'>Abuelo</option>
+            <option value='5'>Abuela</option>
+            <option value='6'>Hermano</option>
+            <option value='7'>Hermana</option>
+            <option value='8'>Hijo</option>
+            <option value='9'>Hija</option>
+          </select>
+          </div>
+          <b>Enfermedades</b>
+          <select [(ngModel)]="dato.disease" class="form-control text-center">
+            <option value='null' selected="">Seleccione alguna enfermedad</option>
+            <option value='2'>Sinusitis</option>
+            <option value='3'>Gastritis</option>
+            <option value='4'>Asma</option>
+            <option value='5'>Obesidad</option>
+            <option value='6'>Alzheimer</option>
+            <option value='7'>Cáncer</option>
+            <option value='8'>Hepatitis</option>
+          </select>
+        </div>
+      </div>
+    </ng-template>
+    </ngb-tab>
+</ngb-tabset>

@@ -1,0 +1,137 @@
+/*Estilo para el paginado*/
+
+.my-pagination /deep/ .ngx-pagination .current {
+    background: gray;
+  }
+
+/*Titulo de la ventana*/
+  
+.title
+{
+	margin: 0px 0px 5px 20px;
+}
+
+
+
+.button-1
+{
+	margin: 0px 0px 5px 630px;
+}
+
+.button-1:hover
+{
+	margin: 0px 0px 5px 630px;
+	background-color: gray;
+	color: white;
+}
+
+.button-2
+{
+	margin: 0px 0px 5px 470px;
+}
+
+.button-3
+{
+	margin: 0px 0px 5px 590px;
+}
+
+.button-3:hover
+{
+	color: white;
+	background-color: gray;
+	margin: 0px 0px 5px 590px;
+}
+
+
+.button-2:hover
+{
+	margin: 0px 0px 5px 470px;
+	background-color: gray;
+	color: white;
+}
+
+.btn-space-1
+{
+	margin-right: 2px;
+}
+
+.button-4
+{
+	margin: 0px 0px 5px 525px;
+}
+
+.button-4:hover
+{
+	margin: 0px 0px 5px 525px;
+	color: white;
+	background-color: #dc3545;
+}
+
+.btn-save-ini-his
+{
+	color: white;
+	background-color: gray;
+}
+
+.btn-save-ini-his:hover
+{
+	border-color: black;
+}
+
+.button-goback
+{
+	margin: 0px 0px 10px 110px;
+}
+
+.button-goback:hover
+{
+	margin: 0px 0px 10px 110px;
+	background: gray;
+	color: white;
+}
+
+.serach
+{
+	margin-left: 470px;
+}
+
+.serach-cite
+{
+	margin-left: 710px	
+}
+
+.title-ppal
+{
+	font-size: 26px;
+	margin-left: 420px; 
+}
+
+.title-ppal-nuevo-paciente
+{
+	font-size: 26px;
+	margin-left: 420px;
+}
+
+.button-3-users
+{
+	margin-left: 470px;
+}
+
+.button-3-users:hover
+{
+	margin-left: 470px;
+	color: white;
+	background-color: gray;
+}
+
+.btn-save-ini-his-modificated
+{
+	color: white;
+	background-color: green;
+	margin-left: 390px
+}
+
+.row
+{
+	margin-right: 0px;
+}
