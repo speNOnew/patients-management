@@ -1,33 +1,24 @@
-Requisitos:
+## Requisitos
 
-***Laravel 5.5***
+*** Laravel 5.5 ***
+- Php 7.x.x
+- Composer
 
--Php 7.x.x
--Composer
+*** Angular 6 ***
+- NodeJS
+- Angular CLI
 
-***Angular 6***
-
--NodeJS
--Angular CLI
-
-Ejecuci�n:
+## Ejecución
 
 - Crear base de datos en Mysql con nombre de "inti"
-
 - Importar la base de datos (El archivo sql esta en la raiz del sistema con nombre de "inti.sql")
-
-- Hacer la configuraci�n necesaria para la conexi�n a la base de datos (En el archivo ".env" dentro de la carpeta "tesis_server")
-
+- Hacer la configuración necesaria para la conexión a la base de datos (En el archivo ".env" dentro de la carpeta "tesis_server")
 - Ingresar por consola a la carpeta tesis_server
-
 - Ejecutar comando php artisan serve
-
 - Ingresar por consola a la carpeta tesis_client
-
 - Ejecutar comando ng serve -o
 
-Credenciales de prueba o de verificaci�n:
+## Credenciales de prueba o de verificación
 
-Usuario: demo
-
-Contrase�a: demo
+- Usuario: demo
+- Contraseóa: demo
