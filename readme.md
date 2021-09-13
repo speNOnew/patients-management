@@ -10,17 +10,24 @@ Requisitos:
 -NodeJS
 -Angular CLI
 
-Ejecución:
+Ejecuciï¿½n:
 
--Crear base de datos en Mysql con nombre de "inti"
--Importar la base de datos (El archivo sql esta en la raiz del sistema con nombre de "inti.sql")
--Hacer la configuración necesaria para la conexión a la base de datos (En el archivo ".env" dentro de la carpeta "tesis_server")
--Ingresar por consola a la carpeta tesis_server
--Ejecutar comando php artisan serve
--Ingresar por consola a la carpeta tesis_client
--Ejecutar comando ng serve -o
+- Crear base de datos en Mysql con nombre de "inti"
 
-Credenciales de prueba o de verificación:
+- Importar la base de datos (El archivo sql esta en la raiz del sistema con nombre de "inti.sql")
+
+- Hacer la configuraciï¿½n necesaria para la conexiï¿½n a la base de datos (En el archivo ".env" dentro de la carpeta "tesis_server")
+
+- Ingresar por consola a la carpeta tesis_server
+
+- Ejecutar comando php artisan serve
+
+- Ingresar por consola a la carpeta tesis_client
+
+- Ejecutar comando ng serve -o
+
+Credenciales de prueba o de verificaciï¿½n:
 
 Usuario: demo
-Contraseña: demo
+
+Contraseï¿½a: demo
